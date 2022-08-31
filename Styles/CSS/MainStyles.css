@@ -1,0 +1,14 @@
+@font-face {
+  font-family: Rubik;
+  src: url(../../fonts/static/Rubik-Light.ttf);
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Rubik;
+}
+body p {
+  font-size: 16px;
+}
+
+/*# sourceMappingURL=MainStyles.css.map */

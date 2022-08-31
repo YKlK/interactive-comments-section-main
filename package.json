@@ -1,0 +1,25 @@
+{
+  "name": "interactive-comments-section-main",
+  "version": "1.0.0",
+  "description": "![Design preview for the Interactive comments section coding challenge](./design/desktop-preview.jpg)",
+  "main": "./App/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "sass": "sass --watch ./Styles/SASS/Main.scss ./Styles/CSS/MainStyles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YKlK/interactive-comments-section-main"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YKlK/interactive-comments-section-main/issues"
+  },
+  "homepage": "https://github.com/YKlK/interactive-comments-section-main#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.13",
+    "@babel/preset-env": "^7.18.10"
+  }
+}
