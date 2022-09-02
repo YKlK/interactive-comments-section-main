@@ -1,8 +1,12 @@
 @import "variables.scss";
+
+
 @font-face {
     font-family: Rubik;
     src: url(../../fonts/static/Rubik-Light.ttf);
 }
+
+
 body{
     margin: 0;
     padding: 0;
@@ -10,4 +14,12 @@ body{
     & p{
         font-size: $Font-size;
     }
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+}
+
+@media only screen and (min-width:$Mobile) and (max-width:$Desktop){
+    // body{color:red;}
 }

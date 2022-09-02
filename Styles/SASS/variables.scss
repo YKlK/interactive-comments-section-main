@@ -1,20 +1,20 @@
 $Mobile: 375px;
 $Desktop: 1440px;
 
-$Colors-Primary: (
-"Moderate blue" hsl(238, 40%, 52%),
-"Soft Red" hsl(358, 79%, 66%),
-"Light grayish blue" hsl(239, 57%, 85%),
-"Pale red" hsl(357, 100%, 86%));
 
-$Color-Neutral:(
+$Moderate_blue :hsl(238, 40%, 52%);
+$Soft_Red :hsl(358, 79%, 66%);
+$Light_grayish_blue :hsl(239, 57%, 85%);
+$Pale_red :hsl(357, 100%, 86%);
 
-"Dark blue" hsl(212, 24%, 26%),
-"Grayish Blue" hsl(211, 10%, 45%),
-"Light gray" hsl(223, 19%, 93%),
-"Very light gray" hsl(228, 33%, 97%),
-"White" hsl(0, 0%, 100%)
-);
+
+
+$Dark_blue: hsl(212, 24%, 26%);
+$Grayish_Blue:hsl(211, 10%, 45%);
+$Light_gray: hsl(223, 19%, 93%);
+$Very_light_gray: hsl(228, 33%, 97%);
+$White:hsl(0, 0%, 100%);
+
 
 
 
@@ -22,5 +22,5 @@ $Font-size: 16px;
 
 
 
-$Family:Rubik;
+$Family: Rubik;
 $Weights: 400, 500, 700;
