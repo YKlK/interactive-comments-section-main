@@ -3,15 +3,81 @@
   src: url(../../fonts/static/Rubik-Light.ttf);
 }
 body {
+  background-color: hsl(223deg, 19%, 93%);
   margin: 0;
   padding: 0;
   font-family: Rubik;
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
+  min-width: 375px;
+  min-height: 500px;
+  margin-bottom: 34vh;
+  height: 71vh;
 }
 body p {
   font-size: 16px;
+}
+
+@media only screen and (min-width: 375px) and (max-width: 1440px) {
+  .interfaz {
+    position: fixed;
+    height: 29vh;
+    width: 90%;
+    transform: translateX(5%);
+    bottom: 15px;
+    background-color: hsl(228deg, 33%, 97%);
+    border-radius: 15px;
+  }
+  .interfaz-input {
+    background-color: hsl(228deg, 33%, 97%);
+    resize: none;
+    border: 2px solid hsl(223deg, 19%, 93%);
+    border-radius: 15px;
+    transform: translate(5%, 5%);
+    width: 90%;
+    height: max(50px, 60%);
+    font-size: 1.5em;
+    line-height: 1.3em;
+    text-indent: 1em;
+    overflow-y: scroll;
+  }
+  .interfaz-input::placeholder {
+    font-size: 1.3em;
+    text-indent: 1em;
+  }
+  .interfaz-input:focus {
+    text-indent: 1em;
+    outline: none;
+    border: 2px solid hsl(223deg, 19%, 93%);
+  }
+  .interfaz-input:focus::placeholder {
+    font-size: 0;
+  }
+  .interfaz-userimg {
+    object-fit: cover;
+    position: absolute;
+    top: 70%;
+    left: 5%;
+    width: 40px;
+    height: 40px;
+  }
+  .interfaz-send {
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    top: 72%;
+    right: 5%;
+    padding: 0.5vh 40px;
+    color: hsl(223deg, 19%, 93%);
+    background-color: hsl(238deg, 40%, 52%);
+    border-radius: 15px;
+    outline: none;
+  }
+  .interfaz-send:hover {
+    background-color: hsl(239deg, 57%, 85%);
+    outline: none;
+  }
 }
 
 /*# sourceMappingURL=MainStyles.css.map */

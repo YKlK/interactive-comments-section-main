@@ -1,7 +1,7 @@
 "use strict"
 
-import {Comentario} from "../Abstract/variables.js"
+import {Comentario , interfaz} from "../Abstract/variables.js"
 
-
-    let user = new Comentario("../../images/avatars/image-juliusomo.png","no antojen");
+    const interfazUser = new interfaz()
+    // let user = new Comentario("../../images/avatars/image-juliusomo.png","no antojen");
  

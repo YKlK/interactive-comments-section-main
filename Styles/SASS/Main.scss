@@ -8,6 +8,7 @@
 
 
 body{
+    background-color: $Light_gray;
     margin: 0;
     padding: 0;
     font-family: $Family;
@@ -17,9 +18,75 @@ body{
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
-
+    min-width: 375px;
+    min-height: 500px;
+     margin-bottom: 34vh;
+     height: calc(100vh - 29vh);
 }
 
 @media only screen and (min-width:$Mobile) and (max-width:$Desktop){
-    // body{color:red;}
+    .interfaz{
+        position: fixed;
+        height: 29vh;
+        width: 90%;
+        transform: translateX(5%);
+        bottom: 15px;
+        background-color: $Very_light_gray;
+        border-radius: 15px;
+        &-input{
+            background-color: $Very_light_gray;
+            resize:none;
+            border: 2px solid $Light_gray;
+            border-radius: 15px;
+            transform: translate(5%,5%);
+            width: 90%;
+            height: max(50px,60%);
+            font-size: 1.5em;
+            line-height: 1.3em;
+            text-indent: 1em;
+            overflow-y: scroll;
+           
+            &::placeholder{
+                font-size: 1.3em;
+                text-indent: 1em;
+            }
+            &:focus{
+                text-indent: 1em;
+                
+                outline: none ;
+                border: 2px solid $Light_gray;
+                &::placeholder{
+
+                    font-size: 0;
+                }
+            }
+
+            
+        }
+        &-userimg{
+                object-fit: cover;
+                position: absolute;
+                top: 70%;
+                left: 5%;
+                width: 40px;
+                height: 40px;
+            }
+        &-send{
+            cursor: pointer;
+            font-size: 25px;
+            position: absolute;
+            top: 72%;
+            right: 5%;
+            padding: 0.5vh 40px;
+            color: $Light_gray;
+            background-color: $Moderate_blue;
+            border-radius: 15px;
+            outline: none;
+            &:hover{
+                background-color: $Light_grayish_blue;
+                outline: none;
+
+            }
+        }
+    }    
 }

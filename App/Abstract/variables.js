@@ -1,5 +1,49 @@
 export const root = document.getElementById("root");
 
+export class interfaz{
+
+    constructor(){
+        this.crearVariables()
+        this.agregarEstilos()
+        this.introducirFragment()
+        document.body.appendChild(this.Contenedor)
+
+    }
+
+    crearVariables(){
+        this.Contenedor=document.createElement("div");
+        this.emisorMensaje=document.createElement("textarea");
+        this.userImgSend=document.createElement("img");
+        this.sendButton=document.createElement("button");
+        
+    }        
+    agregarEstilos(){
+        this.Contenedor.classList.add("interfaz");
+        this.emisorMensaje.classList.add("interfaz-input");
+        this.emisorMensaje.placeholder = "Add a comment...";
+        //Agregar imagen
+        this.userImgSend.src="/images/avatars/image-juliusomo.png";
+        //Agregar imagen
+        this.sendButton.textContent="Send"
+
+        this.userImgSend.classList.add("interfaz-userimg");
+        this.sendButton.classList.add("interfaz-send");
+    }
+
+    introducirFragment(){
+        this.Contenedor.appendChild(this.emisorMensaje)
+        this.Contenedor.appendChild(this.userImgSend)
+        this.Contenedor.appendChild(this.sendButton)
+    }
+
+    agregarEventListener(){
+        this.sendButton.addEventListener("click",)
+    }
+
+
+
+    }
+
 export class Comentario{
 
     static id = 0;
@@ -8,23 +52,23 @@ export class Comentario{
         Comentario.id++;
 
         //creando etiquetas
-        this.div = document.createElement("div")
-        this.comentario = document.createElement("p")
-        this.userIMG = document.createElement("img")
-        this.buttonRemove = document.createElement("button")
-        this.buttonEdit = document.createElement("button")
-        this.agregarReaccion = document.createElement("button")
-        this.reducirReaccion  = document.createElement("button")
-        this.divsito =  document.createElement("div")
-        this.nombre = document.createElement("span")
-        this.hora_de_subida = document.createElement("span")
+        this.div = document.createElement("div");
+        this.comentario = document.createElement("p");
+        this.userIMG = document.createElement("img");
+        this.buttonRemove = document.createElement("button");
+        this.buttonEdit = document.createElement("button");
+        this.agregarReaccion = document.createElement("button");
+        this.reducirReaccion  = document.createElement("button");
+        this.divsito =  document.createElement("div");
+        this.nombre = document.createElement("span");
+        this.hora_de_subida = document.createElement("span");
         //creando etiquetas
 
-        this.imgUser(img)
-        this.setComentario(content)
-        this.seID_s()
-        this.div.appendChild(this.comentario)
-        root.appendChild(this.div)
+        this.imgUser(img);
+        this.setComentario(content);
+        this.seID_s();
+        this.div.appendChild(this.comentario);
+        root.appendChild(this.div);
        
     }  
         seID_s(){
@@ -39,11 +83,11 @@ export class Comentario{
         }
 
         setComentario(texto){
-            this.comentario.textContent = texto
+            this.comentario.textContent = texto;
         }
 
         imgUser(imgPath){
-            this.userIMG.src = imgPath
+            this.userIMG.src = imgPath;
         }
     
 
