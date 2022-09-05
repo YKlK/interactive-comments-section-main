@@ -1,5 +1,6 @@
 export const root = document.getElementById("root");
 
+
 export class interfaz{
 
     constructor(){
@@ -11,6 +12,7 @@ export class interfaz{
     }
 
     crearVariables(){
+        
         this.Contenedor=document.createElement("div");
         this.emisorMensaje=document.createElement("textarea");
         this.userImgSend=document.createElement("img");
@@ -39,7 +41,10 @@ export class interfaz{
     agregarEventListener(){
         this.sendButton.addEventListener("click",)
     }
-
+    agregarcomentario(){
+        
+        
+    }
 
 
     }
@@ -50,28 +55,29 @@ export class Comentario{
     
     constructor(img,content){
         Comentario.id++;
-
-        //creando etiquetas
-        this.div = document.createElement("div");
-        this.comentario = document.createElement("p");
-        this.userIMG = document.createElement("img");
-        this.buttonRemove = document.createElement("button");
-        this.buttonEdit = document.createElement("button");
-        this.agregarReaccion = document.createElement("button");
-        this.reducirReaccion  = document.createElement("button");
-        this.divsito =  document.createElement("div");
-        this.nombre = document.createElement("span");
-        this.hora_de_subida = document.createElement("span");
-        //creando etiquetas
+        this.declaracion_de_variables()
 
         this.imgUser(img);
         this.setComentario(content);
-        this.seID_s();
+        this.setID_s();
         this.div.appendChild(this.comentario);
         root.appendChild(this.div);
        
-    }  
-        seID_s(){
+    } 
+    
+        declaracion_de_variables(){
+            this.div = document.createElement("div");
+            this.comentario = document.createElement("p");
+            this.userIMG = document.createElement("img");
+            this.buttonRemove = document.createElement("button");
+            this.buttonEdit = document.createElement("button");
+            this.agregarReaccion = document.createElement("button");
+            this.reducirReaccion  = document.createElement("button");
+            this.divsito =  document.createElement("div");
+            this.nombre = document.createElement("span");
+            this.hora_de_subida = document.createElement("span");
+        }
+        setID_s(){
             this.div.id = `div-${Comentario.id}`;
             this.comentario.id=`coment-${Comentario.id}`;
             this.buttonEdit.id=`edit-${Comentario.id}`;
@@ -81,6 +87,8 @@ export class Comentario{
             this.divsito.id = `aux-${Comentario.id}`;
             this.nombre.id =  `user-${Comentario.id}`;
         }
+
+        documentIncluder(){}
 
         setComentario(texto){
             this.comentario.textContent = texto;

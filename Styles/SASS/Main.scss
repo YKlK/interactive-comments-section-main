@@ -20,17 +20,18 @@ body{
     flex-wrap: wrap;
     min-width: 375px;
     min-height: 500px;
-     margin-bottom: 34vh;
-     height: calc(100vh - 29vh);
+    margin-bottom: 25vh;
+    height: calc(100vh - 20vh);
 }
 
 @media only screen and (min-width:$Mobile) and (max-width:$Desktop){
+   
     .interfaz{
         position: fixed;
-        height: 29vh;
+        height: 20vh;
         width: 90%;
         transform: translateX(5%);
-        bottom: 15px;
+        bottom: 0px;
         background-color: $Very_light_gray;
         border-radius: 15px;
         &-input{
@@ -40,7 +41,7 @@ body{
             border-radius: 15px;
             transform: translate(5%,5%);
             width: 90%;
-            height: max(50px,60%);
+            height: max(50px,55%);
             font-size: 1.5em;
             line-height: 1.3em;
             text-indent: 1em;
@@ -66,7 +67,7 @@ body{
         &-userimg{
                 object-fit: cover;
                 position: absolute;
-                top: 70%;
+                top: max(65px,65%);
                 left: 5%;
                 width: 40px;
                 height: 40px;
@@ -75,7 +76,7 @@ body{
             cursor: pointer;
             font-size: 25px;
             position: absolute;
-            top: 72%;
+            top: max(65px,65%);
             right: 5%;
             padding: 0.5vh 40px;
             color: $Light_gray;
@@ -88,5 +89,145 @@ body{
 
             }
         }
-    }    
+    } 
+    
+    .root{
+        border-radius: 15px;
+        
+        width: 100%;
+        margin: 15px auto 0px;
+        background-color: $Light_gray;
+        height: 100%;
+
+
+        &-comment_container{
+           color: $Grayish_Blue;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: row  ;
+            flex-wrap: wrap;
+            width: 90%;
+            margin: 0 auto;
+            
+            background-color: $Very_light_gray;
+            
+
+
+            &--Comment{
+                padding: 0 5%;
+                overflow: hidden ;
+                width: 90%;
+                justify-self: center;
+                align-self: center;
+            }
+
+            &--img{
+                margin-top: 15px;
+                margin-left: 5%;
+                width: 40px;
+                height: 40px;
+            }
+
+            &--nombre{
+                margin-top: 25px;
+                margin-left: 15px;
+                font-weight: bold;
+            }
+
+            &--sender{
+
+                display: inline-block;
+                padding: 0px 10px 0px ;
+                align-self: center;
+                justify-self: center;
+                background-color: $Moderate_blue;
+                margin-top: 13px;
+                margin-left: 15px;
+                color: $Very_light_gray;
+                border-radius: 5px;
+            }
+
+            &--timer{
+                margin-top: 25px;
+                margin-left: 15px;
+                
+            }
+
+            &--Comment---containterLikes{
+                font-size: 1.2em;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                height: 15px;
+                padding: 0 5%;
+                margin-bottom: 15px;
+            }
+        }
+    }
+}
+
+@media only screen and (min-height:300px) and (max-height:575px){
+    .interfaz{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        position: fixed;
+        height: 65px;
+        width: 90%;
+        transform: translateX(5%);
+        bottom: 15px;
+        background-color: $Very_light_gray;
+        border-radius: 15px;
+        &-input{
+            background-color: $Very_light_gray;
+            resize:none;
+            border: 2px solid $Light_gray;
+            border-radius: 15px;
+            transform: translate(5%,5%);
+            width: 90%;
+            height: 50px;
+            font-size: 1.5em;
+            line-height: 1.3em;
+            text-indent: 1em;
+            overflow-y: scroll;
+           
+            &::placeholder{
+                font-size: 1em;
+                text-indent: 1em;
+            }
+            &:focus{
+                text-indent: 1em;
+                
+                outline: none ;
+                border: 2px solid $Light_gray;
+                &::placeholder{
+
+                    font-size: 0;
+                }
+            }
+
+            
+        }
+        &-userimg{
+            display: none;
+            }
+        &-send{
+            width: 20%;
+            cursor: pointer;
+            font-size: 25px;
+            position: absolute;
+            top: 10%;
+            right: 5%;
+            padding: 2vh 5px;
+            color: $Light_gray;
+            background-color: $Moderate_blue;
+            border-radius: 15px;
+            outline: none;
+            &:hover{
+                background-color: $Light_grayish_blue;
+                outline: none;
+
+            }
+        }
+    } 
 }

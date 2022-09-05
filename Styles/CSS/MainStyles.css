@@ -12,8 +12,8 @@ body {
   flex-wrap: wrap;
   min-width: 375px;
   min-height: 500px;
-  margin-bottom: 34vh;
-  height: 71vh;
+  margin-bottom: 25vh;
+  height: 80vh;
 }
 body p {
   font-size: 16px;
@@ -22,10 +22,10 @@ body p {
 @media only screen and (min-width: 375px) and (max-width: 1440px) {
   .interfaz {
     position: fixed;
-    height: 29vh;
+    height: 20vh;
     width: 90%;
     transform: translateX(5%);
-    bottom: 15px;
+    bottom: 0px;
     background-color: hsl(228deg, 33%, 97%);
     border-radius: 15px;
   }
@@ -36,7 +36,7 @@ body p {
     border-radius: 15px;
     transform: translate(5%, 5%);
     width: 90%;
-    height: max(50px, 60%);
+    height: max(50px, 55%);
     font-size: 1.5em;
     line-height: 1.3em;
     text-indent: 1em;
@@ -57,7 +57,7 @@ body p {
   .interfaz-userimg {
     object-fit: cover;
     position: absolute;
-    top: 70%;
+    top: max(65px, 65%);
     left: 5%;
     width: 40px;
     height: 40px;
@@ -66,9 +66,127 @@ body p {
     cursor: pointer;
     font-size: 25px;
     position: absolute;
-    top: 72%;
+    top: max(65px, 65%);
     right: 5%;
     padding: 0.5vh 40px;
+    color: hsl(223deg, 19%, 93%);
+    background-color: hsl(238deg, 40%, 52%);
+    border-radius: 15px;
+    outline: none;
+  }
+  .interfaz-send:hover {
+    background-color: hsl(239deg, 57%, 85%);
+    outline: none;
+  }
+  .root {
+    border-radius: 15px;
+    width: 100%;
+    margin: 15px auto 0px;
+    background-color: hsl(223deg, 19%, 93%);
+    height: 100%;
+  }
+  .root-comment_container {
+    color: hsl(211deg, 10%, 45%);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 0 auto;
+    background-color: hsl(228deg, 33%, 97%);
+  }
+  .root-comment_container--Comment {
+    padding: 0 5%;
+    overflow: hidden;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+  }
+  .root-comment_container--img {
+    margin-top: 15px;
+    margin-left: 5%;
+    width: 40px;
+    height: 40px;
+  }
+  .root-comment_container--nombre {
+    margin-top: 25px;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+  .root-comment_container--sender {
+    display: inline-block;
+    padding: 0px 10px 0px;
+    align-self: center;
+    justify-self: center;
+    background-color: hsl(238deg, 40%, 52%);
+    margin-top: 13px;
+    margin-left: 15px;
+    color: hsl(228deg, 33%, 97%);
+    border-radius: 5px;
+  }
+  .root-comment_container--timer {
+    margin-top: 25px;
+    margin-left: 15px;
+  }
+  .root-comment_container--Comment---containterLikes {
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 15px;
+    padding: 0 5%;
+    margin-bottom: 15px;
+  }
+}
+@media only screen and (min-height: 300px) and (max-height: 575px) {
+  .interfaz {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    position: fixed;
+    height: 65px;
+    width: 90%;
+    transform: translateX(5%);
+    bottom: 15px;
+    background-color: hsl(228deg, 33%, 97%);
+    border-radius: 15px;
+  }
+  .interfaz-input {
+    background-color: hsl(228deg, 33%, 97%);
+    resize: none;
+    border: 2px solid hsl(223deg, 19%, 93%);
+    border-radius: 15px;
+    transform: translate(5%, 5%);
+    width: 90%;
+    height: 50px;
+    font-size: 1.5em;
+    line-height: 1.3em;
+    text-indent: 1em;
+    overflow-y: scroll;
+  }
+  .interfaz-input::placeholder {
+    font-size: 1em;
+    text-indent: 1em;
+  }
+  .interfaz-input:focus {
+    text-indent: 1em;
+    outline: none;
+    border: 2px solid hsl(223deg, 19%, 93%);
+  }
+  .interfaz-input:focus::placeholder {
+    font-size: 0;
+  }
+  .interfaz-userimg {
+    display: none;
+  }
+  .interfaz-send {
+    width: 20%;
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    top: 10%;
+    right: 5%;
+    padding: 2vh 5px;
     color: hsl(223deg, 19%, 93%);
     background-color: hsl(238deg, 40%, 52%);
     border-radius: 15px;
