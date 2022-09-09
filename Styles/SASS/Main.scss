@@ -5,9 +5,16 @@
     font-family: Rubik;
     src: url(../../fonts/static/Rubik-Light.ttf);
 }
+.positive{
+    color: $Moderate_blue;
+}
 
+.negative{
+    color: $Soft_Red;
+}
 
 body{
+    scroll-behavior: smooth;
     background-color: $Light_gray;
     margin: 0;
     padding: 0;
@@ -101,6 +108,7 @@ body{
 
 
         &-comment_container{
+            
            color: $Grayish_Blue;
             border-radius: 15px;
             display: flex;
@@ -114,6 +122,7 @@ body{
 
 
             &--Comment{
+                
                 padding: 0 5%;
                 overflow: hidden ;
                 width: 90%;
@@ -122,6 +131,7 @@ body{
             }
 
             &--img{
+               
                 margin-top: 15px;
                 margin-left: 5%;
                 width: 40px;
@@ -150,17 +160,85 @@ body{
             &--timer{
                 margin-top: 25px;
                 margin-left: 15px;
-                
+                align-content: flex-end;
             }
 
-            &--Comment---containterLikes{
+            
+
+            &--containterbuttons{
+                
+                width: 90%;
                 font-size: 1.2em;
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                height: 15px;
+                display: grid;
+                grid-template-columns: 25px max-content 25px 1fr max-content;
+                height: 20px;
                 padding: 0 5%;
-                margin-bottom: 15px;
+                margin-bottom: 30px;
+                align-content: flex-start;
+                &---pluslike{
+                    grid-column: 1/2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    padding: 11px 7px 11px 7px;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius:5px ;
+                    max-width: fit-content;
+                    &:hover{
+                        background-color: $Light_gray;
+                    }
+                }
+                
+                &---likes{
+                    grid-column: 2/3;
+                    width: 100%;
+                    
+                    background-color: $Light_gray;
+                    padding: 5px;
+                }
+
+
+                &---minuslike{
+                    grid-column: 3/4;
+                    max-width: fit-content;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    padding: 15px 7px 15px 7px;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius:5px ;
+                    &:hover{
+                        background-color: $Light_gray;
+                    }
+                }
+
+                &---delete{
+                    padding: 5px 7px 5px 7px;
+                    height: 100%;
+                    grid-column: 4/5;
+                    width: fit-content;
+                    align-self: flex-end;
+                    justify-self: flex-end;
+                    background-color: $Very_light_gray;
+                    border: none;
+                    color: $Soft_Red;
+                    font-size: .9em;
+                }
+                &---edit{
+                    color: $Moderate_blue;
+                    grid-column: 5/6;
+                    padding:  6px 0px;
+                    width: fit-content;
+                    justify-self: flex-end;
+                    background-color: $Very_light_gray;
+                    margin-left: 5px;
+                    border: none;
+                    font-size: .9em;
+                }
+
+
             }
         }
     }
