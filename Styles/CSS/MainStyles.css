@@ -2,14 +2,6 @@
   font-family: Rubik;
   src: url(../../fonts/static/Rubik-Light.ttf);
 }
-.positive {
-  color: hsl(238deg, 40%, 52%);
-}
-
-.negative {
-  color: hsl(358deg, 79%, 66%);
-}
-
 body {
   scroll-behavior: smooth;
   background-color: hsl(223deg, 19%, 93%);
@@ -22,7 +14,7 @@ body {
   min-width: 375px;
   min-height: 500px;
   margin-bottom: 25vh;
-  height: 80vh;
+  height: content;
 }
 body p {
   font-size: 16px;
@@ -94,6 +86,42 @@ body p {
     background-color: hsl(223deg, 19%, 93%);
     height: 100%;
   }
+  .root-question {
+    background-color: hsl(228deg, 33%, 97%);
+    color: hsl(211deg, 10%, 45%);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    margin: 40vh auto 15px;
+  }
+  .root-question span {
+    width: 90%;
+    margin: 15px auto 15px;
+    letter-spacing: 3px;
+    word-spacing: 4px;
+  }
+  .root-question--spanlider {
+    font-size: 1.3em;
+    color: hsl(212deg, 24%, 26%);
+    font-weight: bolder;
+  }
+  .root-question button {
+    color: hsl(223deg, 19%, 93%);
+    width: 42%;
+    padding: 15px;
+    border-radius: 15px 18px;
+    margin-left: 5%;
+    border: none;
+    margin-bottom: 15px;
+  }
+  .root-question--button1 {
+    background-color: hsl(211deg, 10%, 45%);
+  }
+  .root-question--button2 {
+    background-color: hsl(358deg, 79%, 66%);
+  }
   .root-comment_container {
     color: hsl(211deg, 10%, 45%);
     border-radius: 15px;
@@ -101,7 +129,7 @@ body p {
     flex-direction: row;
     flex-wrap: wrap;
     width: 90%;
-    margin: 0 auto;
+    margin: 0 auto 15px;
     background-color: hsl(228deg, 33%, 97%);
   }
   .root-comment_container--Comment {
@@ -264,6 +292,13 @@ body p {
     background-color: hsl(239deg, 57%, 85%);
     outline: none;
   }
+}
+.positive {
+  color: hsl(238deg, 40%, 52%);
+}
+
+.negative {
+  color: hsl(358deg, 79%, 66%);
 }
 
 /*# sourceMappingURL=MainStyles.css.map */
