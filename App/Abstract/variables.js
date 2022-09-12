@@ -1,11 +1,16 @@
 export const root = document.getElementById("root");
-export const regexp = {
+export const regexp = 
+{
     vacio: /[a-zA-Z0-9]/
-}
+}  
+export const storage = new window.localStorage;
 
-export class interfaz{
 
-    constructor(){
+export class interfaz
+{
+
+    constructor()
+    {
         this.crearVariables()
         this.agregarEstilos()
         this.introducirFragment()
@@ -14,7 +19,8 @@ export class interfaz{
 
     }
 
-    crearVariables(){
+    crearVariables()
+    {
         
         this.Contenedor=document.createElement("div");
         this.emisorMensaje=document.createElement("textarea");
@@ -22,7 +28,8 @@ export class interfaz{
         this.sendButton=document.createElement("button");
         
     }        
-    agregarEstilos(){
+    agregarEstilos()
+    {
         this.Contenedor.classList.add("interfaz");
         this.emisorMensaje.classList.add("interfaz-input");
         this.emisorMensaje.placeholder = "Add a comment...";
@@ -35,26 +42,33 @@ export class interfaz{
         this.sendButton.classList.add("interfaz-send");
     }
 
-    introducirFragment(){
+    introducirFragment()
+    {
         this.Contenedor.appendChild(this.emisorMensaje)
         this.Contenedor.appendChild(this.userImgSend)
         this.Contenedor.appendChild(this.sendButton)
     }
 
-    agregarEventListener(){
+    agregarEventListener()
+    {
 
-        this.sendButton.addEventListener("click",()=>{
-            if(this.emisorMensaje.value == ""){
+        this.sendButton.addEventListener("click",()=>
+        {
+            if(this.emisorMensaje.value == "")
+            {
                 alert("Write something")
             }
-            else{
+            else
+            {
+             //storage.setItem()   aqui comienza mi odisea
             new Comentario("julio somo",this.userImgSend.src,this.emisorMensaje.value)
             this.emisorMensaje.value = ""
             }
 
         })
 
-        this.emisorMensaje.addEventListener("keypress",(event)=>{
+        this.emisorMensaje.addEventListener("keypress",(event)=>
+        {
             // console.log(event)
             switch(event.key){
 
@@ -67,7 +81,7 @@ export class interfaz{
                     else{
                         new Comentario("julio somo",this.userImgSend.src,this.emisorMensaje.value)
                         
-                        event.target.value = "null"
+                        event.target.value = ""
                     }
                     break;
                
@@ -80,13 +94,15 @@ export class interfaz{
     
 
 
-    }
+}
 
-export class Comentario{
+export class Comentario
+{
 
     static id = 0;
     
-    constructor(nombre,img,content){
+    constructor(nombre,img,content)
+    {
         Comentario.id++;
         this.declaracion_de_variables()
         this.addClasses()
@@ -99,7 +115,8 @@ export class Comentario{
        
     } 
     
-        declaracion_de_variables(){
+        declaracion_de_variables()
+        {   this.editSend = document.createElement("button");
             this.reacionesValue = 0
             this.div = document.createElement("div");
             this.comentario = document.createElement("p");
@@ -112,9 +129,16 @@ export class Comentario{
             this.divsito =  document.createElement("div");
             this.nombre = document.createElement("span");
             this.hora_de_subida = document.createElement("span");
-            this.sender = document.createElement("span")
+            this.sender = document.createElement("span");
+            //delete
+            this.deleteCube = document.createElement("div");
+            this.deleteTitule = document.createElement("span");
+            this.deleteText = document.createElement("span");
+            this.buttonCancel = document.createElement("button");
+            this.buttonContinueDelete = document.createElement("button");
         }
-        setID_s(){
+        setID_s()
+        {
             this.div.id = `div-${Comentario.id}`;
             this.comentario.id=`coment-${Comentario.id}`;
             this.buttonEdit.id=`edit-${Comentario.id}`;
@@ -125,7 +149,8 @@ export class Comentario{
             this.nombre.id =  `user-${Comentario.id}`;
             
         }
-        addClasses(){
+        addClasses()
+        {  
             this.div.classList.add("root-comment_container");
             this.userIMG.classList.add("root-comment_container--img");
             this.comentario.classList.add("root-comment_container--Comment")
@@ -138,8 +163,17 @@ export class Comentario{
             this.reducirReaccion.classList.add("root-comment_container--containterbuttons---minuslike")
             this.buttonRemove.classList.add("root-comment_container--containterbuttons---delete")
             this.buttonEdit.classList.add("root-comment_container--containterbuttons---edit")
+            this.editSend.classList.add("root-comment_container--containterbuttons---edit")
+            //delete
+            this.deleteCube.classList.add("root-question")
+            this.deleteTitule.classList.add("root-question--spanlider")
+            this.deleteText.classList.add("root-question--span")
+            this.buttonCancel.classList.add("root-question--button1")
+            this.buttonContinueDelete.classList.add("root-question--button2")
         }
-        documentIncluder(){
+        documentIncluder()
+        { 
+            
             this.divsito.appendChild(this.agregarReaccion);
             this.divsito.appendChild(this.reacciones);
             this.divsito.appendChild(this.reducirReaccion);
@@ -151,10 +185,25 @@ export class Comentario{
             this.div.appendChild(this.hora_de_subida);
             this.div.appendChild(this.comentario);
             this.div.appendChild(this.divsito);
+            
+
+            this.deleteCube.appendChild(this.deleteTitule)
+            this.deleteCube.appendChild(this.deleteText)
+            this.deleteCube.appendChild(this.buttonCancel)
+            this.deleteCube.appendChild(this.buttonContinueDelete)
+            
+            
+            
+            
+
+
             return this.div;
+
         }
 
-        addValues(nombre,imgPath ,texto){
+        addValues(nombre,imgPath ,texto)
+        {   
+            
             this.buttonRemove.innerHTML = `<svg width="12" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M1.167 12.448c0 .854.7 1.552 1.555 1.552h6.222c.856 0 1.556-.698 1.556-1.552V3.5H1.167v8.948Zm10.5-11.281H8.75L7.773 0h-3.88l-.976 1.167H0v1.166h11.667V1.167Z" fill="#ED6368"/></svg> Delete`
             this.buttonEdit.innerHTML = `<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z" fill="#5357B6"/></svg> Edit`
             this.agregarReaccion.innerHTML = `<svg width="11" height="11" xmlns="http://www.w3.org/2000/svg"><path d="M6.33 10.896c.137 0 .255-.05.354-.149.1-.1.149-.217.149-.354V7.004h3.315c.136 0 .254-.05.354-.149.099-.1.148-.217.148-.354V5.272a.483.483 0 0 0-.148-.354.483.483 0 0 0-.354-.149H6.833V1.4a.483.483 0 0 0-.149-.354.483.483 0 0 0-.354-.149H4.915a.483.483 0 0 0-.354.149c-.1.1-.149.217-.149.354v3.37H1.08a.483.483 0 0 0-.354.15c-.1.099-.149.217-.149.353v1.23c0 .136.05.254.149.353.1.1.217.149.354.149h3.333v3.39c0 .136.05.254.15.353.098.1.216.149.353.149H6.33Z" fill="#C5C6EF"/></svg>`
@@ -164,50 +213,98 @@ export class Comentario{
             this.sender.textContent= "You"
             this.userIMG.src = imgPath;
             this.comentario.textContent = texto;
+
+        
             // this.hora_de_subida agregar funcion tomadora de hora 
+
+            //delete
+            this.deleteTitule.textContent = "Delete Comment"
+            this.deleteText.textContent = "Are you sure you want to delate this comment? this will remove the comment and can't be undone."
+            this.buttonContinueDelete.textContent = "YES, DELETE"
+            this.buttonCancel.textContent = "NO, CANCEL"
+
+
+            //edit
+            this.editSend.innerHTML =  `<svg width="14" height="14" xmlns="http://www.w3.org/2000/svg"><path d="M13.479 2.872 11.08.474a1.75 1.75 0 0 0-2.327-.06L.879 8.287a1.75 1.75 0 0 0-.5 1.06l-.375 3.648a.875.875 0 0 0 .875.954h.078l3.65-.333c.399-.04.773-.216 1.058-.499l7.875-7.875a1.68 1.68 0 0 0-.061-2.371Zm-2.975 2.923L8.159 3.449 9.865 1.7l2.389 2.39-1.75 1.706Z" fill="#5357B6"/></svg> UPDATE`
         }
 
-        setComentario(texto){
+        setComentario(texto)
+        {
             this.comentario.textContent = texto;
         }
 
-        imgUser(imgPath){
+        imgUser(imgPath)
+        {
             this.userIMG.src = imgPath;
         }
         
-        agregarEventos(){
-            this.agregarReaccion.addEventListener("click",(event)=>{
+        agregarEventos()
+        {
+            this.agregarReaccion.addEventListener("click",(event)=>
+            {
                 this.reacionesValue+=1
                 this.reacciones.textContent = this.reacionesValue
                 console.log(event)
-                if(this.reacionesValue > 0){
+                if(this.reacionesValue > 0)
+                {
                     this.reacciones.classList.remove("negative")
                     this.reacciones.classList.add("positive")
                 }
-                if(this.reacionesValue == 0){
+                if(this.reacionesValue == 0)
+                {
                     this.reacciones.classList.remove("negative")
                     this.reacciones.classList.remove("positive")
                 }
             })
-            this.reducirReaccion.addEventListener("click",(event)=>{
+            this.reducirReaccion.addEventListener("click",(event)=>
+            {
                 event.disabled=true
                 this.reacionesValue-=1
                 this.reacciones.textContent = this.reacionesValue
-                if(this.reacionesValue == 0){
+                if(this.reacionesValue == 0)
+                {
                     this.reacciones.classList.remove("negative")
                     this.reacciones.classList.remove("positive")
                 }
-                if(this.reacionesValue < 0){
+                if(this.reacionesValue < 0)
+                {
                     this.reacciones.classList.remove("positive")
                     this.reacciones.classList.add("negative")
                 }
+            })           
+            this.buttonRemove.addEventListener("click",()=>
+            {
+                root.classList.add("transparencia")
+                document.body.appendChild(this.deleteCube)
+
             })
-
-            this.buttonRemove.addEventListener("click",()=>{
-
-
-
-                
+            this.buttonCancel.addEventListener("click",()=>
+            {
+                document.body.removeChild(this.deleteCube)
+                root.classList.remove("transparencia")
+            })
+            this.buttonContinueDelete.addEventListener("click",()=>
+            {   
+                root.classList.remove("transparencia")
+                root.removeChild(this.div)
+                document.body.removeChild(this.deleteCube)
+            })
+            this.buttonEdit.addEventListener("click",(event)=>
+            {
+                this.comentario.contentEditable = true
+                this.divsito.removeChild(event.target)
+                this.divsito.appendChild(this.editSend);
+            })
+            this.editSend.addEventListener("click",(event)=>
+            {   
+                if(!regexp.vacio.test(this.comentario.textContent)){
+                        
+                    alert("Write something")
+                }else{
+                this.comentario.contentEditable = false
+                this.divsito.removeChild(event.target)
+                this.divsito.appendChild(this.buttonEdit);
+                }
             })
         }
 

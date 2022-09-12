@@ -87,6 +87,9 @@ body p {
     height: 100%;
   }
   .root-question {
+    position: fixed;
+    left: 5%;
+    top: 5%;
     background-color: hsl(228deg, 33%, 97%);
     color: hsl(211deg, 10%, 45%);
     border-radius: 15px;
@@ -94,7 +97,7 @@ body p {
     flex-direction: row;
     flex-wrap: wrap;
     width: 90%;
-    margin: 40vh auto 15px;
+    margin: 40vh 0 15px;
   }
   .root-question span {
     width: 90%;
@@ -165,6 +168,13 @@ body p {
     margin-top: 25px;
     margin-left: 15px;
     align-content: flex-end;
+  }
+  .root-comment_container--update {
+    justify-self: flex-end;
+    width: 40%;
+    height: fit-content;
+    margin-top: 25px;
+    padding: fit-content;
   }
   .root-comment_container--containterbuttons {
     width: 90%;
@@ -299,6 +309,10 @@ body p {
 
 .negative {
   color: hsl(358deg, 79%, 66%);
+}
+
+.transparencia {
+  filter: blur(5px);
 }
 
 /*# sourceMappingURL=MainStyles.css.map */
