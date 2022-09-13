@@ -79,6 +79,64 @@ body p {
     background-color: hsl(239deg, 57%, 85%);
     outline: none;
   }
+  .interfazReply {
+    height: 20vh;
+    width: 80%;
+    margin: 0 5% 15px 15%;
+    transform: translateX(5%);
+    margin-bottom: 15px;
+    background-color: hsl(228deg, 33%, 97%);
+    border-radius: 15px;
+  }
+  .interfazReply-input {
+    background-color: hsl(228deg, 33%, 97%);
+    resize: none;
+    border: 2px solid hsl(223deg, 19%, 93%);
+    border-radius: 15px;
+    transform: translate(5%, 5%);
+    width: 90%;
+    height: max(50px, 55%);
+    font-size: 1.5em;
+    line-height: 1.3em;
+    text-indent: 1em;
+    overflow-y: scroll;
+  }
+  .interfazReply-input::placeholder {
+    font-size: 1.3em;
+    text-indent: 1em;
+  }
+  .interfazReply-input:focus {
+    text-indent: 1em;
+    outline: none;
+    border: 2px solid hsl(223deg, 19%, 93%);
+  }
+  .interfazReply-input:focus::placeholder {
+    font-size: 0;
+  }
+  .interfazReply-userimg {
+    object-fit: cover;
+    position: absolute;
+    top: max(65px, 65%);
+    left: 5%;
+    width: 40px;
+    height: 40px;
+  }
+  .interfazReply-send {
+    cursor: pointer;
+    font-size: 25px;
+    position: absolute;
+    top: max(65px, 65%);
+    right: 5%;
+    padding: 0.5vh 40px;
+    color: hsl(223deg, 19%, 93%);
+    background-color: hsl(238deg, 40%, 52%);
+    border-radius: 15px;
+    outline: none;
+  }
+  .interfazReply-send:hover {
+    background-color: hsl(239deg, 57%, 85%);
+    outline: none;
+  }
   .root {
     border-radius: 15px;
     width: 100%;
@@ -136,6 +194,7 @@ body p {
     background-color: hsl(228deg, 33%, 97%);
   }
   .root-comment_container--Comment {
+    word-wrap: break-word;
     padding: 0 5%;
     overflow: hidden;
     width: 90%;
@@ -233,6 +292,125 @@ body p {
     font-size: 0.9em;
   }
   .root-comment_container--containterbuttons---edit {
+    color: hsl(238deg, 40%, 52%);
+    grid-column: 5/6;
+    padding: 6px 0px;
+    width: fit-content;
+    justify-self: flex-end;
+    background-color: hsl(228deg, 33%, 97%);
+    margin-left: 5px;
+    border: none;
+    font-size: 0.9em;
+  }
+  .root-reply_container {
+    color: hsl(211deg, 10%, 45%);
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 5% 15px 15%;
+    background-color: hsl(228deg, 33%, 97%);
+  }
+  .root-reply_container--Comment {
+    word-wrap: break-word;
+    padding: 0 5%;
+    overflow: hidden;
+    width: 90%;
+    justify-self: center;
+    align-self: center;
+  }
+  .root-reply_container--img {
+    margin-top: 15px;
+    margin-left: 5%;
+    width: 40px;
+    height: 40px;
+  }
+  .root-reply_container--nombre {
+    margin-top: 25px;
+    margin-left: 15px;
+    font-weight: bold;
+  }
+  .root-reply_container--sender {
+    display: inline-block;
+    padding: 0px 10px 0px;
+    align-self: center;
+    justify-self: center;
+    background-color: hsl(238deg, 40%, 52%);
+    margin-top: 13px;
+    margin-left: 15px;
+    color: hsl(228deg, 33%, 97%);
+    border-radius: 5px;
+  }
+  .root-reply_container--timer {
+    margin-top: 25px;
+    margin-left: 15px;
+    align-content: flex-end;
+  }
+  .root-reply_container--update {
+    justify-self: flex-end;
+    width: 40%;
+    height: fit-content;
+    margin-top: 25px;
+    padding: fit-content;
+  }
+  .root-reply_container--containterbuttons {
+    width: 90%;
+    font-size: 1.2em;
+    display: grid;
+    grid-template-columns: 25px max-content 25px 1fr max-content;
+    height: 20px;
+    padding: 0 5%;
+    margin-bottom: 30px;
+    align-content: flex-start;
+  }
+  .root-reply_container--containterbuttons---pluslike {
+    grid-column: 1/2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 11px 7px 11px 7px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    max-width: fit-content;
+  }
+  .root-reply_container--containterbuttons---pluslike:hover {
+    background-color: hsl(223deg, 19%, 93%);
+  }
+  .root-reply_container--containterbuttons---likes {
+    grid-column: 2/3;
+    width: 100%;
+    background-color: hsl(223deg, 19%, 93%);
+    padding: 5px;
+  }
+  .root-reply_container--containterbuttons---minuslike {
+    grid-column: 3/4;
+    max-width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    padding: 15px 7px 15px 7px;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .root-reply_container--containterbuttons---minuslike:hover {
+    background-color: hsl(223deg, 19%, 93%);
+  }
+  .root-reply_container--containterbuttons---delete {
+    padding: 5px 7px 5px 7px;
+    height: 100%;
+    grid-column: 4/5;
+    width: fit-content;
+    align-self: flex-end;
+    justify-self: flex-end;
+    background-color: hsl(228deg, 33%, 97%);
+    border: none;
+    color: hsl(358deg, 79%, 66%);
+    font-size: 0.9em;
+  }
+  .root-reply_container--containterbuttons---edit {
     color: hsl(238deg, 40%, 52%);
     grid-column: 5/6;
     padding: 6px 0px;

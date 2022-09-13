@@ -103,6 +103,80 @@ body
         }
     } 
     
+    .interfazReply
+    {
+        
+        height: 20vh;
+        width: 80%;
+        margin: 0 5% 15px 15%;
+        transform: translateX(5%);
+        margin-bottom: 15px;
+        background-color: $Very_light_gray;
+        border-radius: 15px;
+        &-input
+        {
+            background-color: $Very_light_gray;
+            resize:none;
+            border: 2px solid $Light_gray;
+            border-radius: 15px;
+            transform: translate(5%,5%);
+            width: 90%;
+            height: max(50px,55%);
+            font-size: 1.5em;
+            line-height: 1.3em;
+            text-indent: 1em;
+            overflow-y: scroll;
+           
+            &::placeholder
+            {
+                font-size: 1.3em;
+                text-indent: 1em;
+            }
+            &:focus
+            {
+                text-indent: 1em;
+                
+                outline: none ;
+                border: 2px solid $Light_gray;
+                &::placeholder
+                {
+
+                    font-size: 0;
+                }
+            }
+
+            
+        }
+        &-userimg
+            {
+                object-fit: cover;
+                position: absolute;
+                top: max(65px,65%);
+                left: 5%;
+                width: 40px;
+                height: 40px;
+            }
+        &-send
+        {
+            cursor: pointer;
+            font-size: 25px;
+            position: absolute;
+            top: max(65px,65%);
+            right: 5%;
+            padding: 0.5vh 40px;
+            color: $Light_gray;
+            background-color: $Moderate_blue;
+            border-radius: 15px;
+            outline: none;
+            &:hover
+            {
+                background-color: $Light_grayish_blue;
+                outline: none;
+
+            }
+        }
+    } 
+
     .root
     {
         border-radius: 15px;
@@ -178,7 +252,163 @@ body
 
             &--Comment
             {
+                word-wrap: break-word;
+                padding: 0 5%;
+                overflow: hidden ;
+                width: 90%;
+                justify-self: center;
+                align-self: center;
+            }
+
+            &--img
+            {
+               
+                margin-top: 15px;
+                margin-left: 5%;
+                width: 40px;
+                height: 40px;
+            }
+
+            &--nombre
+            {
+                margin-top: 25px;
+                margin-left: 15px;
+                font-weight: bold;
+            }
+
+            &--sender
+            {
+
+                display: inline-block;
+                padding: 0px 10px 0px ;
+                align-self: center;
+                justify-self: center;
+                background-color: $Moderate_blue;
+                margin-top: 13px;
+                margin-left: 15px;
+                color: $Very_light_gray;
+                border-radius: 5px;
+            }
+
+            &--timer
+            {
+                margin-top: 25px;
+                margin-left: 15px;
+                align-content: flex-end;
+            }
+
+            
+            &--update{
+                justify-self: flex-end;
+                width: 40%;
+                height: fit-content;
+                margin-top: 25px;
+                padding: fit-content;
                 
+                
+            }
+            &--containterbuttons
+            {
+                
+                width: 90%;
+                font-size: 1.2em;
+                display: grid;
+                grid-template-columns: 25px max-content 25px 1fr max-content;
+                height: 20px;
+                padding: 0 5%;
+                margin-bottom: 30px;
+                align-content: flex-start;
+
+                &---pluslike
+                {
+                    grid-column: 1/2;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    padding: 11px 7px 11px 7px;
+                    border-top-left-radius: 5px;
+                    border-bottom-left-radius:5px ;
+                    max-width: fit-content;
+                    &:hover
+                    {
+                        background-color: $Light_gray;
+                    }
+                }
+                
+                &---likes
+                {
+                    grid-column: 2/3;
+                    width: 100%;
+                    
+                    background-color: $Light_gray;
+                    padding: 5px;
+                }
+
+
+                &---minuslike
+                {
+                    grid-column: 3/4;
+                    max-width: fit-content;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    border: none;
+                    padding: 15px 7px 15px 7px;
+                    border-top-right-radius: 5px;
+                    border-bottom-right-radius:5px ;
+                    &:hover
+                    {
+                        background-color: $Light_gray;
+                    }
+                }
+
+                &---delete
+                {
+                    padding: 5px 7px 5px 7px;
+                    height: 100%;
+                    grid-column: 4/5;
+                    width: fit-content;
+                    align-self: flex-end;
+                    justify-self: flex-end;
+                    background-color: $Very_light_gray;
+                    border: none;
+                    color: $Soft_Red;
+                    font-size: .9em;
+                }
+                &---edit
+                {
+                    color: $Moderate_blue;
+                    grid-column: 5/6;
+                    padding:  6px 0px;
+                    width: fit-content;
+                    justify-self: flex-end;
+                    background-color: $Very_light_gray;
+                    margin-left: 5px;
+                    border: none;
+                    font-size: .9em;
+                }
+            }
+        }
+
+        &-reply_container
+        {
+            
+           color: $Grayish_Blue;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: row  ;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: 0 5% 15px 15%;
+            
+            background-color: $Very_light_gray;
+            
+
+
+            &--Comment
+            {
+                word-wrap: break-word;
                 padding: 0 5%;
                 overflow: hidden ;
                 width: 90%;
