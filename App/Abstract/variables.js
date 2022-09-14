@@ -123,7 +123,7 @@ export class interfaz
                 else
                 {
                    
-                    new Comentario("julio somo",this.userImgSend.src,this.emisorMensaje.value,"reply")
+                    new Comentario("julio somo",this.userImgSend.src,this.emisorMensaje.value,"unaffiliated")
                     
                     document.body.removeChild(this.Contenedor);
                 }
@@ -147,17 +147,19 @@ export class Comentario
         Comentario.id++;
         this.declaracion_de_variables()
         this.addClasses(type)
-        this.agregarEventos()
+        this.agregarEventos(type)
         this.setComentario(content);
         this.setID_s();
         this.addValues(nombre,img,content);
         
-        root.appendChild(this.documentIncluder())
+        root.appendChild(this.documentIncluder(type))
        
     } 
     
         declaracion_de_variables()
-        {   this.reply = document.createElement("button");
+        {   
+            this.bolson = document.createElement("div");
+            this.reply = document.createElement("button");
             this.editSend = document.createElement("button");
             this.reacionesValue = 0
             this.div = document.createElement("div");
@@ -180,7 +182,8 @@ export class Comentario
             this.buttonContinueDelete = document.createElement("button");
         }
         setID_s()
-        {
+        {  
+            this.bolson.id=`bolson-${Comentario.id}`
             this.div.id = `div-${Comentario.id}`;
             this.comentario.id=`coment-${Comentario.id}`;
             this.buttonEdit.id=`edit-${Comentario.id}`;
@@ -188,7 +191,7 @@ export class Comentario
             this.agregarReaccion.id =`addR-${Comentario.id}`;
             this.reducirReaccion.id =`RedR-${Comentario.id}`;
             this.divsito.id = `aux-${Comentario.id}`;
-            this.nombre.id =  `user-${Comentario.id}`;
+            this.nombre.id = `user-${Comentario.id}`;
             
         }
         addClasses(type)
@@ -209,6 +212,7 @@ export class Comentario
                 this.buttonRemove.classList.add("root-comment_container--containterbuttons---delete")
                 this.buttonEdit.classList.add("root-comment_container--containterbuttons---edit")
                 this.editSend.classList.add("root-comment_container--containterbuttons---edit")
+                this.bolson.classList.add("root-comment_container--containterbuttons---bolson")
             //delete
                 this.deleteCube.classList.add("root-question")
                 this.deleteTitule.classList.add("root-question--spanlider")
@@ -231,6 +235,7 @@ export class Comentario
                 this.buttonRemove.classList.add("root-reply_container--containterbuttons---delete")
                 this.buttonEdit.classList.add("root-reply_container--containterbuttons---edit")
                 this.editSend.classList.add("root-reply_container--containterbuttons---edit")
+                this.bolson.classList.add("root-comment_container--containterbuttons---bolson")
             //delete
                 this.deleteCube.classList.add("root-question")
                 this.deleteTitule.classList.add("root-question--spanlider")
@@ -241,27 +246,46 @@ export class Comentario
 
 
         }
-        documentIncluder()
+        documentIncluder(type)
         { 
-            
-            this.divsito.appendChild(this.agregarReaccion);
-            this.divsito.appendChild(this.reacciones);
-            this.divsito.appendChild(this.reducirReaccion);
-            this.divsito.appendChild(this.buttonRemove);
-            this.divsito.appendChild(this.buttonEdit);
-            this.div.appendChild(this.userIMG);
-            this.div.appendChild(this.nombre);
-            this.div.appendChild(this.sender);
-            this.div.appendChild(this.hora_de_subida);
-            this.div.appendChild(this.comentario);
-            this.div.appendChild(this.divsito);
+            if(type=="comment")
+            {
+                this.divsito.appendChild(this.agregarReaccion);
+                this.divsito.appendChild(this.reacciones);
+                this.divsito.appendChild(this.reducirReaccion);
+                this.divsito.appendChild(this.buttonRemove);
+                this.divsito.appendChild(this.buttonEdit);
+                this.divsito.appendChild(this.bolson);
+                this.div.appendChild(this.userIMG);
+                this.div.appendChild(this.nombre);
+                this.div.appendChild(this.sender);
+                this.div.appendChild(this.hora_de_subida);
+                this.div.appendChild(this.comentario);
+                this.div.appendChild(this.divsito);
             
 
-            this.deleteCube.appendChild(this.deleteTitule)
-            this.deleteCube.appendChild(this.deleteText)
-            this.deleteCube.appendChild(this.buttonCancel)
-            this.deleteCube.appendChild(this.buttonContinueDelete)
+                this.deleteCube.appendChild(this.deleteTitule)
+                this.deleteCube.appendChild(this.deleteText)
+                this.deleteCube.appendChild(this.buttonCancel)
+                this.deleteCube.appendChild(this.buttonContinueDelete)
+            }
+            if(type=="unaffiliated")
+            {
+                this.divsito.appendChild(this.agregarReaccion);
+                this.divsito.appendChild(this.reacciones);
+                this.divsito.appendChild(this.reducirReaccion);
+                this.divsito.appendChild(this.reply);
+                this.divsito.appendChild(this.bolson);
+                this.div.appendChild(this.userIMG);
+                this.div.appendChild(this.nombre);
+                this.div.appendChild(this.sender);
+                this.div.appendChild(this.hora_de_subida);
+                this.div.appendChild(this.comentario);
+                this.div.appendChild(this.divsito);
             
+
+                
+            }
             
             
             
@@ -308,12 +332,43 @@ export class Comentario
             this.userIMG.src = imgPath;
         }
         
-        agregarEventos()
+        agregarEventos(type)
         {
-            this.reply.addEventListener("click",(event)=>
+
+            if(type=="comment" || type=="reply")
             {
-                
-            })
+                this.buttonRemove.addEventListener("click",()=>
+                {
+                    root.classList.add("transparencia")
+                    document.body.appendChild(this.deleteCube)
+
+                })
+                this.buttonCancel.addEventListener("click",()=>
+                {
+                document.body.removeChild(this.deleteCube)
+                root.classList.remove("transparencia")
+                })
+                this.buttonContinueDelete.addEventListener("click",()=>
+                {   
+                root.classList.remove("transparencia")
+                root.removeChild(this.div)
+                document.body.removeChild(this.deleteCube)
+                })
+                this.buttonEdit.addEventListener("click",(event)=>
+                {
+                    this.comentario.contentEditable = true
+                    this.divsito.removeChild(event.target)
+                    this.divsito.appendChild(this.editSend);
+                })
+            }
+
+
+            // this.reply.addEventListener("click",(event)=>
+            // {
+            //     this.bolson.appendChild(new interfaz("reply"))
+                    
+            //         document.body.removeChild(this.Contenedor);
+            // })
             this.agregarReaccion.addEventListener("click",(event)=>
             {
                 this.reacionesValue+=1
@@ -346,29 +401,7 @@ export class Comentario
                     this.reacciones.classList.add("negative")
                 }
             })           
-            this.buttonRemove.addEventListener("click",()=>
-            {
-                root.classList.add("transparencia")
-                document.body.appendChild(this.deleteCube)
-
-            })
-            this.buttonCancel.addEventListener("click",()=>
-            {
-                document.body.removeChild(this.deleteCube)
-                root.classList.remove("transparencia")
-            })
-            this.buttonContinueDelete.addEventListener("click",()=>
-            {   
-                root.classList.remove("transparencia")
-                root.removeChild(this.div)
-                document.body.removeChild(this.deleteCube)
-            })
-            this.buttonEdit.addEventListener("click",(event)=>
-            {
-                this.comentario.contentEditable = true
-                this.divsito.removeChild(event.target)
-                this.divsito.appendChild(this.editSend);
-            })
+           
             this.editSend.addEventListener("click",(event)=>
             {   
                 if(!regexp.vacio.test(this.comentario.textContent)){
