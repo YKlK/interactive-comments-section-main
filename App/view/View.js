@@ -2,7 +2,7 @@
 
 import {Comentario , interfaz, root } from "../Abstract/variables.js"
 
-const interfazUser = new interfaz()
+const interfazUser = new interfaz("julio somo", "../../images/avatars/image-juliusomo.png" ,document.body)
 
     // window.localStorage.setItem("state",JSON.stringify(root.innerHTML))
 
